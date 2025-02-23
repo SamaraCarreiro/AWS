@@ -1,9 +1,6 @@
 #!/bin/bash
-sudo su
-yum -y install httpd
+yum -y install httpd git
 yum update -y
-
-echo "<p> EC2 TESTE DO APACHE! </p>" >> /var/www/html/index.html
 
 systemctl start httpd
 systemctl enable httpd
@@ -17,6 +14,6 @@ systemctl restart httpd
 
 systemctl status httpd >> /var/log/setup.log 2>&1
 
-curl -X POST -d "nome=Samara Carreiro" https://difusaotech.com.br/lab/aws/index.php 
+curl -X POST -d "nome=Samara Carreiro" https://difusaotech.com.br/lab/aws/index.php >> /var/log/script.html 2>&1
 
-echo "Script concluído com sucesso!" >> /var/log/setup-script.log
+echo "Script concluído com sucesso!" >> /var/log/script.html
